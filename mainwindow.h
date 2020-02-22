@@ -17,6 +17,8 @@ public:
 
 public slots:
     void buttonClickHandler();
+    void buttonClickHandlerHelp();
+
 
 private:
     Ui::MainWindow *ui;
