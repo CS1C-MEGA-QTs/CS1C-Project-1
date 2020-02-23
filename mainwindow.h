@@ -2,6 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
+#include <QMessageBox>
+#include <QPixmap>
+#include "admin.h"
+#include "checkout.h"
+#include "shoppingcartwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,8 +27,16 @@ public slots:
     void buttonClickHandler();
     void buttonClickHandlerHelp();
 
+private slots:
+ //   void on_pushButton_SQLDB_clicked();
+
+    void on_pushButton_adminlogin_clicked();
+
+    void on_pushButton_NextShoppingCart_clicked();
 
 private:
     Ui::MainWindow *ui;
+    Admin *admin;
+    ShoppingCartWindow *shoppingCartWindow;
 };
 #endif // MAINWINDOW_H

@@ -1,12 +1,26 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+     // First Robot Picture
 
+    QPixmap FirstRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/1l-iRobot-510-PackBot.jpg");
+    int FirstRobotW = ui->label_1stRobotPic->width();
+    int FirstRobotH = ui->label_1stRobotPic->height();
+    ui->label_1stRobotPic->setPixmap(FirstRobotPix.scaled(FirstRobotW,FirstRobotH,Qt::KeepAspectRatio));
+     // Second Robot Picture
+    QPixmap SecondRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/3l-Image-Talon.jpg");
+    int SecondRobotW = ui->label_2ndRobotPic->width();
+    int SecondRobotH = ui->label_2ndRobotPic->height();
+     ui->label_2ndRobotPic->setPixmap(SecondRobotPix.scaled(SecondRobotW,SecondRobotH,Qt::KeepAspectRatio));
+    // Second Robot Picture
+   QPixmap ThirdRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/5l-Image-Dragon Runner.jpg");
+   int ThirdRobotW = ui->label_3rdRobotPic->width();
+   int ThirdRobotH = ui->label_3rdRobotPic->height();
+    ui->label_3rdRobotPic->setPixmap(ThirdRobotPix.scaled(ThirdRobotW,ThirdRobotH,Qt::KeepAspectRatio));
     ui->comboBox->addItem("United States");
     ui->comboBox->addItem("United Kingdom");
     ui->comboBox->addItem("Argentina");
@@ -72,9 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_2->addItem("WI");
     ui->comboBox_2->addItem("WV");
     ui->comboBox_2->addItem("WY");
-
 }
-
 
 MainWindow::~MainWindow()
 {
@@ -100,4 +112,30 @@ void MainWindow::buttonClickHandlerHelp()
     this->ui->comboBox_2->clearEditText();
 
 }
+void MainWindow::on_pushButton_adminlogin_clicked()
+{
+    QString username = ui->lineEdit_UserName->text();
+    QString password = ui->lineEdit_Password->text();
+    if(username == "test" && password == "test")
+    {
+        ui->statusbar->showMessage("Username and password is correct");
+     //   QMessageBox::information(this, "Login", "Username and password is correct");
+        hide();
+        admin = new Admin(this);
+        admin->show();
+    }
+    else {
+      //  QMessageBox::warning(this, "Login", "Username and password is not correct");
+        ui->statusbar->showMessage("Username and password is not correct");
 
+    }
+}
+
+void MainWindow::on_pushButton_NextShoppingCart_clicked()
+{
+    // Hide the Robot Window itself
+    hide();
+    // Show the Shopping Cart Window
+    shoppingCartWindow = new ShoppingCartWindow(this);
+    shoppingCartWindow->show();
+}
