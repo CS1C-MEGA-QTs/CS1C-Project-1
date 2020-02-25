@@ -6,18 +6,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
      // First Robot Picture
-
-    QPixmap FirstRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/1l-iRobot-510-PackBot.jpg");
+    QPixmap FirstRobotPix(":/new/prefix1/1l-iRobot-510-PackBot.jpg");
     int FirstRobotW = ui->label_1stRobotPic->width();
     int FirstRobotH = ui->label_1stRobotPic->height();
     ui->label_1stRobotPic->setPixmap(FirstRobotPix.scaled(FirstRobotW,FirstRobotH,Qt::KeepAspectRatio));
      // Second Robot Picture
-    QPixmap SecondRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/3l-Image-Talon.jpg");
+    QPixmap SecondRobotPix(":/new/prefix1/3l-Image-Talon.jpg");
     int SecondRobotW = ui->label_2ndRobotPic->width();
     int SecondRobotH = ui->label_2ndRobotPic->height();
      ui->label_2ndRobotPic->setPixmap(SecondRobotPix.scaled(SecondRobotW,SecondRobotH,Qt::KeepAspectRatio));
     // Second Robot Picture
-   QPixmap ThirdRobotPix("C:/Users/suhyr/Documents/iRobotstoDetectBombs/5l-Image-Dragon Runner.jpg");
+   QPixmap ThirdRobotPix(":/new/prefix1/5l-Image-Dragon Runner.jpg");
    int ThirdRobotW = ui->label_3rdRobotPic->width();
    int ThirdRobotH = ui->label_3rdRobotPic->height();
     ui->label_3rdRobotPic->setPixmap(ThirdRobotPix.scaled(ThirdRobotW,ThirdRobotH,Qt::KeepAspectRatio));
