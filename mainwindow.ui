@@ -6,30 +6,135 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
-    <height>650</height>
+    <width>1108</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="CustomerService_2">
+   <widget class="QTabWidget" name="HomeTabWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>1031</width>
-      <height>601</height>
+      <width>1101</width>
+      <height>671</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Home">
      <attribute name="title">
       <string>Home</string>
      </attribute>
+     <widget class="QLabel" name="WelcomeLabel">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>701</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>Welcome to the iRobotsToDetectBombs</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ImageLabel">
+      <property name="geometry">
+       <rect>
+        <x>-20</x>
+        <y>0</y>
+        <width>1151</width>
+        <height>651</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>ImageLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="MEGAQTImageLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>161</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MEGAQTImageLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="OfficialWebsiteLabel">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>70</y>
+        <width>311</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string> Official Website!</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="HomeTextBrowser">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>280</y>
+        <width>821</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Century Gothic</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Century Gothic'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;We are home to a brand of specialized and reliable bomb disarming robots. We house three types of robots, each with a special capability in use. Verying from size to body type and terrain abilities, our robots are guarenteed to disarm any bomb that comes in its path (exclusions include nuclear or atomic bombs). &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;	Our engineers flawlessly work at designing and updating each robot with the latest and most andvanced technologies. Our products are professionally targetted for major bomb disposing institutions such as the Orange County Bomb Squad, Camp Pendleton, and many other government organizations!&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;Note: Our company is not at fault if it is unsuccessful at disarming any explosives and is not responsible for any casualties or liablitities that occur as a result of an undisarmed bomb/explosive. Use only to disarm bombs that our products can feasibly disarm. Intended for ages 18+.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <zorder>ImageLabel</zorder>
+     <zorder>WelcomeLabel</zorder>
+     <zorder>MEGAQTImageLabel</zorder>
+     <zorder>OfficialWebsiteLabel</zorder>
+     <zorder>HomeTextBrowser</zorder>
     </widget>
     <widget class="QWidget" name="Robot">
      <attribute name="title">
@@ -172,7 +277,7 @@
      <attribute name="title">
       <string>Customer Service</string>
      </attribute>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="ContactServicLabel">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -206,7 +311,7 @@ Methods to get service
 </string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="GetInTouchWithUsLabel">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -345,6 +450,26 @@ Methods to get service
      <attribute name="title">
       <string>Help</string>
      </attribute>
+     <widget class="QLabel" name="HelpTitleLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>651</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Need Help Navigating Our Website?</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -353,7 +478,7 @@ Methods to get service
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1029</width>
+     <width>1108</width>
      <height>21</height>
     </rect>
    </property>
