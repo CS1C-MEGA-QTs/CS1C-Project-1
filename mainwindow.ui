@@ -132,7 +132,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;Note: Our company is not at fault if it is unsuccessful at disarming any explosives and is not responsible for any casualties or liablitities that occur as a result of an undisarmed bomb/explosive. Use only to disarm bombs that our products can feasibly disarm. Intended for ages 18+.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
-     </widget>
+      </widget>
     </widget>
     <widget class="QWidget" name="Robot">
      <attribute name="title">
@@ -582,6 +582,7 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
         <y>230</y>
         <width>371</width>
         <height>421</height>
+
        </rect>
       </property>
       <property name="font">
@@ -594,6 +595,7 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
       </property>
       <property name="text">
        <string>-&gt; By phone
+
  (123) - 456 - 7891
 
 -&gt; By email
@@ -612,6 +614,7 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
         <y>90</y>
         <width>651</width>
         <height>51</height>
+
        </rect>
       </property>
       <property name="font">
@@ -778,6 +781,11 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
     <widget class="QWidget" name="Review">
      <attribute name="title">
       <string>Review</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="FAQ">
+     <attribute name="title">
+      <string>FAQ</string>
      </attribute>
     </widget>
     <widget class="QWidget" name="Help">

@@ -74,5 +74,6 @@ private:
     Admin              *admin;
     Ui::MainWindow     *ui;
     ShoppingCartWindow *shoppingCartWindow;
+
 };
 #endif // MAINWINDOW_H

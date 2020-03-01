@@ -1,8 +1,8 @@
 /******************************************************************************
- * PROGRAMMERS: - Jonathan Aguirre
- *              - Tina     Faraji
- *              - Suhyr    Hasan
- *              - Weston   Mathews
+ * PROGRAMMERS: Jonathan Aguirre
+ *              Tina     Faraji
+ *              Suhyr    Hasan
+ *              Weston   Mathews
  * CLASS      : CS1C
  * SECTION    : MW 5:00p - 7:30p
  * DUE DATE   : 02/23/20
@@ -13,7 +13,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-
+      
 {//begin constructor
 
     ui->setupUi(this);
@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     QPixmap homePageCornerImage(":/King Bob-Omb Pic/King Bob-Omb.png");
 
     /************************************************************
-    * PROCESSING - Set the label to hold the image specified
-    ************************************************************/
+     * PROCESSING - Set the label to hold the image specified
+     ************************************************************/
     ui -> ImageLabel       -> setPixmap(homePageBackground.scaled(1151,651));
     ui -> MEGAQTImageLabel -> setPixmap(homePageCornerImage.scaled(161, 171));
 
@@ -253,3 +253,4 @@ void MainWindow::on_pushButton_NextShoppingCart_clicked()
     shoppingCartWindow->show();
 
 }//end on_pushButton_NextShoppingCart_clicked()
+
