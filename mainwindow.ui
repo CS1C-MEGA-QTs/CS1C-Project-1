@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Home">
      <attribute name="title">
@@ -132,7 +132,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;Note: Our company is not at fault if it is unsuccessful at disarming any explosives and is not responsible for any casualties or liablitities that occur as a result of an undisarmed bomb/explosive. Use only to disarm bombs that our products can feasibly disarm. Intended for ages 18+.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
-      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="Robot">
      <attribute name="title">
@@ -464,111 +464,23 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
      <attribute name="title">
       <string>Admin</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_Admin">
+     <widget class="QPushButton" name="pushButton_adminlogin">
       <property name="geometry">
        <rect>
-        <x>660</x>
-        <y>210</y>
-        <width>651</width>
-        <height>561</height>
+        <x>550</x>
+        <y>300</y>
+        <width>381</width>
+        <height>111</height>
        </rect>
       </property>
-      <property name="title">
-       <string>SignIn</string>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
-      <widget class="QLabel" name="label_UserName">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>90</y>
-         <width>221</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>UserName</string>
-       </property>
-       <property name="buddy">
-        <cstring>lineEdit_UserName</cstring>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Password">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>240</y>
-         <width>251</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Password</string>
-       </property>
-       <property name="buddy">
-        <cstring>lineEdit_Password</cstring>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_UserName">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>90</y>
-         <width>241</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_Password">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>250</y>
-         <width>241</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_adminlogin">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>410</y>
-         <width>321</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Login</string>
-       </property>
-      </widget>
+      <property name="text">
+       <string>Open Administrator Login</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="CustomerService">
@@ -582,7 +494,6 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
         <y>230</y>
         <width>371</width>
         <height>421</height>
-
        </rect>
       </property>
       <property name="font">
@@ -614,7 +525,6 @@ The modular and reconfigurable robot is perfectly suitable for a range of milita
         <y>90</y>
         <width>651</width>
         <height>51</height>
-
        </rect>
       </property>
       <property name="font">
@@ -1068,7 +978,7 @@ REVIEW: Allows customer to read and leave reviews about their orders
      <x>0</x>
      <y>0</y>
      <width>2205</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
   </widget>
