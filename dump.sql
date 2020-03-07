@@ -1,14 +1,17 @@
 PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
+
 CREATE TABLE customers
-(customerID INTEGER PRIMARY KEY AUTOINCREMENT,
-name varchar(50),
+(
+customerID INTEGER PRIMARY KEY AUTOINCREMENT,
+name varchar(50) UNIQUE,
 address varchar(90),
 website varchar(50),
 interestLevel varchar(50),
 doNotContact bool,
 keyAccount bool,
-pamphletSent bool);
+pamphletSent bool
+);
 INSERT INTO customers VALUES(1,'Orange County Airport','18601 Airport Way Santa Ana, CA 92707','oc.airport.gov','Very Interested',0,1,0);
 INSERT INTO customers VALUES(2,'Los Angeles Airport','1 World Way, Los Angeles, CA 90045','lax.airport.gov','Very Interested',0,1,0);
 INSERT INTO customers VALUES(3,'FBI','1234 Lincoln Ave., Washington D.C. 00234','www.fbi.gov','Not Interested',0,1,0);
@@ -40,8 +43,8 @@ customerID int,
 itemID int,
 qtyPurchased int,
 date varchar(12),
-FOREIGN KEY(customerID) REFERENCES customers(customerID),
-FOREIGN KEY(itemID) REFERENCES items(itemID)
+FOREIGN KEY(customerID) REFERENCES customers(customerID) ON DELETE CASCADE,
+FOREIGN KEY(itemID) REFERENCES items(itemID) ON DELETE CASCADE
 );
 INSERT INTO purchases VALUES(1,1,1,'1/10/2000');
 INSERT INTO purchases VALUES(1,2,2,'5/21/2010');
