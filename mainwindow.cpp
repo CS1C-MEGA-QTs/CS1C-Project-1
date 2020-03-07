@@ -206,34 +206,8 @@ void MainWindow::buttonClickHandlerHelp()
 ************************************************************/
 void MainWindow::on_pushButton_adminlogin_clicked()
 {
-    QString username = ui -> lineEdit_UserName -> text();
-    QString password = ui -> lineEdit_Password -> text();
-
-    /************************************************************
-    * PROCESSING -Check if username and password are correct
-    *             before granting access to the customer
-    *             database.
-    ************************************************************/
-    if(username == "test" && password == "test")
-    {//begin if
-
-        ui -> statusbar -> showMessage("Username and password is correct");
-
-        QMessageBox::information(this, "Login", "Username and password is correct");
-        hide();
-
-        admin =  new Admin(this);
-        admin -> show();
-    }
-    /************************************************************
-    * PROCESSING - Display error message
-    ************************************************************/
-    else
-    {
-       QMessageBox::warning(this, "Login", "Username and password is not correct");
-       ui->statusbar->showMessage("Username and password is not correct");
-
-    }//end if
+    admin =  new Admin(this);
+    admin -> show();
 
 }//end on_pushButton_adminlogin_clicked()
 
