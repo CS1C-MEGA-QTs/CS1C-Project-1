@@ -60,6 +60,9 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
      </widget>
      <widget class="QLabel" name="label_password">
       <property name="geometry">
@@ -191,6 +194,9 @@
        <width>971</width>
        <height>541</height>
       </rect>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -442,6 +448,9 @@
        <width>1001</width>
        <height>341</height>
       </rect>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>

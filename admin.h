@@ -24,6 +24,7 @@ namespace Ui
     class Admin;
 }
 
+
 class Admin : public QDialog
 {
     Q_OBJECT
