@@ -11,15 +11,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
-#include <QMessageBox>
 #include <QPixmap>
-#include "admin.h"
-#include "checkout.h"
-#include "shoppingcartwindow.h"
-
+#include "Robot.h"
+#include "CustomerService.h"
+#include "Help.h"
+#include "Admin.h"
+#include "Pamphlet.h"
+#include "Review.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -32,48 +32,26 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-
-    /************************************************************
-    * buttonClickHandler()
-    * ----------------------------------------------------------
-    * Erases data entered into the customer service page.
-    ************************************************************/
-    void buttonClickHandler();
-
-    /************************************************************
-    * buttonClickHandlerHelp()
-    * ----------------------------------------------------------
-    * Erases data entered into the leave a review page.
-    ************************************************************/
-    void buttonClickHandlerHelp();
-
 private slots:
- //   void on_pushButton_SQLDB_clicked();
+    void on_pushButton_RobotPage_clicked();
 
-    /************************************************************
-    * on_pushButton_adminlogin_clicked()
-    * ----------------------------------------------------------
-    * This is used to read in a username and password in from
-    * the admin page. If the username and password are typed
-    * incorrectly, then an error message will display to the
-    * user. If typed correctly, a window to grant access to
-    * using the customer database will appear.
-    ************************************************************/
-    void on_pushButton_adminlogin_clicked();
+    void on_pushButton_CustomerService_clicked();
 
-    /************************************************************
-    * on_pushButton_NextShoppingCart_clicked()
-    * ----------------------------------------------------------
-    * This will allow the user to go to the cart window to view
-    * thier purchase before checkout.
-    ************************************************************/
-    void on_pushButton_NextShoppingCart_clicked();
+    void on_pushButton_HelpPage_clicked();
+
+    void on_pushButton_AdminPage_clicked();
+
+    void on_pushButton_SendPamphlet_clicked();
+
+    void on_pushButton_ReviewPage_clicked();
 
 private:
-    Admin              *admin;
-    Ui::MainWindow     *ui;
-    ShoppingCartWindow *shoppingCartWindow;
-
+    Ui::MainWindow *ui;
+    Robot *robot;
+    CustomerService *customerService;
+    Help *help;
+    Pamphlet *pamphlet;
+    Admin *admin;
+    Review *review;
 };
 #endif // MAINWINDOW_H

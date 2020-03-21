@@ -16,28 +16,41 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Admin.cpp \
+    CustomerService.cpp \
     CustomerTableModel.cpp \
     Database.cpp \
-    admin.cpp \
-    checkout.cpp \
+    Help.cpp \
+    Pamphlet.cpp \
+    Review.cpp \
+    Robot.cpp \
+    ShoppingCart.cpp \
     main.cpp \
-    mainwindow.cpp \
-    shoppingcartwindow.cpp
+    mainwindow.cpp
 
 HEADERS += \
+    Admin.h \
+    Customer.h \
+    CustomerService.h \
     CustomerTableModel.h \
     Database.h \
-    admin.h \
-    checkout.h \
-    mainwindow.h \
-    shoppingcartwindow.h
+    Help.h \
+    Pamphlet.h \
+    Review.h \
+    Robot.h \
+    ShoppingCart.h \
+    mainwindow.h
 
 FORMS += \
-    admin.ui \
-    checkout.ui \
-    mainwindow.ui \
-    shoppingcartwindow.ui
-    
+    Admin.ui \
+    CustomerService.ui \
+    Help.ui \
+    Pamphlet.ui \
+    Review.ui \
+    Robot.ui \
+    ShoppingCart.ui \
+    mainwindow.ui
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -49,4 +62,3 @@ RESOURCES += \
     KingBomb-Omb.qrc \
     TalonRobot.qrc \
     iRobotDetectBomb.qrc
-

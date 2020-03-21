@@ -1,35 +1,43 @@
+/******************************************************************************
+ * PROGRAMMERS: - Jonathan Aguirre
+ *              - Tina     Faraji
+ *              - Suhyr    Hasan
+ *              - Weston   Mathews
+ * CLASS      : CS1C
+ * SECTION    : MW 5:00p - 7:30p
+ * DUE DATE   : 02/23/20
+ *****************************************************************************/
 #include "Database.h"
 
 // Constructor
-    // Parameterized constructor
+// Parameterized constructor
 Database::Database(QString path, QString driver)
     :QSqlDatabase(addDatabase(driver))
 {
     // Set Hostname to Local
     setHostName("localhost");
-       setDatabaseName(path);
+    setDatabaseName(path);
 
-       // Check if open
-       if(open())
-       {
-           qDebug() << "Database opened successfully";
-       }
-       else
-       {
-           qDebug() << this->lastError().text();
-       }
+    // Check if open
+    if(open())
+    {
+        qDebug() << "Database opened successfully";
+    }
+    else
+    {
+        qDebug() << this->lastError().text();
+    }
 }
 
 // Mutators
-    // Testimonials Page //
-        //Add review (customerName, reviewText)
+// Testimonials Page //
+//Add review (customerName, reviewText)
 bool Database::AddReview(QString name, QString reviewText) { return false; }
 
-    // Login
+// Login
 bool Database::AttemptLogin(QString username, QString password)
 {
     QSqlQuery query;
-
     // Run admin credential query
     query.prepare("SELECT * FROM users WHERE admin = 1 and username = :username"
                   " and password = :password;");
@@ -38,13 +46,13 @@ bool Database::AttemptLogin(QString username, QString password)
 
     if(!query.exec())
     {
-       qDebug() << query.lastError().text();
+        qDebug() << query.lastError().text();
     }
 
     return query.next();
 }
 
-        // Add customer (all fields at once)
+// Add customer (all fields at once)
 bool Database::AddCustomer(QString name, QString address, QString website,
                            QString interestLevel, QString doNotContact,
                            QString keyAccount, QString pamphletSent)
@@ -69,7 +77,7 @@ bool Database::AddCustomer(QString name, QString address, QString website,
     return query.exec();
 }
 
-        // Edit customer data (individual fields)
+// Edit customer data (individual fields)
 bool Database::UpdateCustomer(QString customerID, QString name, QString address,
                               QString website, QString interestLevel,
                               QString doNotContact, QString keyAccount,
@@ -102,8 +110,8 @@ bool Database::UpdateCustomer(QString customerID, QString name, QString address,
     return query.exec();
 }
 
-        // Remove customer
-            // Note: This needs to convert the input to uppercase
+// Remove customer
+// Note: This needs to convert the input to uppercase
 bool Database::DeleteCustomer(QString customerID)
 {
     QSqlQuery query;
@@ -116,14 +124,57 @@ bool Database::DeleteCustomer(QString customerID)
     query.bindValue(":customerID", customerID);
     return query.exec();
 }
+// Remove customer
+// Note: This needs to convert the input to uppercase
 
 // Home Page (?) //
-        // Change 'pamphletSent' to 'true' (when customer orders pamphlet)
-bool Database::SendPamphlet(QString customerName) {return false;}
+// Change 'pamphletSent' to 'true' (when customer orders pamphlet)
+bool Database::SendPamphlet(QString name,QString pamphletSent)
+{
+    QSqlQuery query;
+    // Prepare query to send pamphlet
+   query.prepare("UPDATE customers "
+                 "SET pamphletSent = :pamphletSent "
+                 "WHERE name = :name;");
+    // Bind safe values
+     query.bindValue(":name",name);
+     query.bindValue(":pamphletSent", pamphletSent);
+    return query.exec();
+}
 
 // Accessors
-        // Print reviews (customerName, reviewText)
+// Print reviews (customerName, reviewText)
 QStringList Database::GetReviews() {return QStringList();}
 
+// Placing An Order
+bool Database::PlacingOrder(QString customerID, QString qtyPurchased, QString date)
+{
+    QSqlQuery query;
+    // Prepare query to add purchase
+    query.prepare("INSERT INTO purchases VALUES(:customerID, :qtyPurchased, :date);");
+
+    // Bind safe values
+    query.bindValue(":customerID", customerID);
+    query.bindValue(":qtyPurchased", qtyPurchased);
+    query.bindValue(":date", date);
+    return query.exec();
+}
+// Returning Shipping Address
+QString Database::ShippingAddress(QString &name)
+{
+    QSqlQuery query;
+    query.prepare("SELECT address FROM customers WHERE name=:name");
+    query.bindValue(":name",name);
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            name = query.value(0).toString();
+            return name;
+        }
+    }
+
+    return name;
+}
 // Destructor
- Database::~Database() {}
+Database::~Database() {}
