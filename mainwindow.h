@@ -1,16 +1,26 @@
+/******************************************************************************
+ * PROGRAMMERS: - Jonathan Aguirre
+ *              - Tina     Faraji
+ *              - Suhyr    Hasan
+ *              - Weston   Mathews
+ * CLASS      : CS1C
+ * SECTION    : MW 5:00p - 7:30p
+ * DUE DATE   : 02/23/20
+ *****************************************************************************/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
-#include <QMessageBox>
 #include <QPixmap>
-#include "admin.h"
-#include "checkout.h"
-#include "shoppingcartwindow.h"
-
+#include "Robot.h"
+#include "CustomerService.h"
+#include "Help.h"
+#include "Admin.h"
+#include "Pamphlet.h"
+#include "Review.h"
+#include "Database.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,20 +33,26 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-    void buttonClickHandler();
-    void buttonClickHandlerHelp();
-
 private slots:
- //   void on_pushButton_SQLDB_clicked();
+    void on_pushButton_RobotPage_clicked();
 
-    void on_pushButton_adminlogin_clicked();
+    void on_pushButton_CustomerService_clicked();
 
-    void on_pushButton_NextShoppingCart_clicked();
+    void on_pushButton_HelpPage_clicked();
+
+    void on_pushButton_AdminPage_clicked();
+
+    void on_pushButton_SendPamphlet_clicked();
+
+    void on_pushButton_ReviewPage_clicked();
 
 private:
     Ui::MainWindow *ui;
+    Robot *robot;
+    CustomerService *customerService;
+    Help *help;
+    Pamphlet *pamphlet;
     Admin *admin;
-    ShoppingCartWindow *shoppingCartWindow;
+    Review *review;
 };
 #endif // MAINWINDOW_H

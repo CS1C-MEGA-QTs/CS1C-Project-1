@@ -1,3 +1,12 @@
+/******************************************************************************
+ * PROGRAMMERS: - Jonathan Aguirre
+ *              - Tina     Faraji
+ *              - Suhyr    Hasan
+ *              - Weston   Mathews
+ * CLASS      : CS1C
+ * SECTION    : MW 5:00p - 7:30p
+ * DUE DATE   : 02/23/20
+ *****************************************************************************/
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
 
