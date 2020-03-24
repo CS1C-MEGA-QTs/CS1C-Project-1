@@ -12,6 +12,7 @@
 
 #include "Database.h"
 #include <QSqlTableModel>
+#include <QTableWidgetItem>
 #include <QObject>
 
 class CustomerTableModel : public QSqlTableModel
