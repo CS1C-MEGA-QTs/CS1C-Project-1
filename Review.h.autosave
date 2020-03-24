@@ -41,6 +41,8 @@ private slots:
 
     void on_OldReviewListWidget_currentTextChanged(const QString &currentText);
 
+    void on_OldReviewListWidget_activated(const QModelIndex &index);
+    
 private:
     Ui::Review *ui;
     Database   *database;

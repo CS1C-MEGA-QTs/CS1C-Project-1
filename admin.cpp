@@ -8,7 +8,7 @@
  * DUE DATE   : 02/23/20
  *****************************************************************************/
 #include "admin.h"
-#include "ui_admin.h"
+#include "ui_Admin.h"
 #include "mainwindow.h"
 
 // Constructor
@@ -20,6 +20,7 @@ Admin::Admin(QWidget *parent) :
 
     // Initialize database
     database = new Database("MegaQTDB.db", "QSQLITE");
+    ui->stackedWidget_admin->setCurrentIndex(0);
 }
 
 
@@ -178,11 +179,11 @@ void Admin::on_tableView_edit_database_activated(const QModelIndex &index)
     pamphletSent = ui->tableView_edit_database->model()->index(index.row(),7).data().toString();
 
     // Reassign boolean values to "Yes" or "No"
-        // Assign contact
+    // Assign contact
     doNotContact = (doNotContact == "1") ? "Y" : "N";
-        // Assign key account
+    // Assign key account
     keyAccount = (keyAccount.toUpper() == "1") ? "Y" : "N";
-        // Assign pamphlet sent status
+    // Assign pamphlet sent status
     pamphletSent = (pamphletSent.toUpper() == "1") ? "Y" : "N";
 
     // Assign Customer Listing Attribute Variables to Input Fields
@@ -224,11 +225,11 @@ void Admin::on_button_add_customer_clicked()
         pamphletSent = ui->inputField_pamphlet_sent->text();
 
         // Reassign boolean values to 1 or 0
-            // Assign contact
+        // Assign contact
         doNotContact = (doNotContact.toUpper() == "Y") ? "1" : "0";
-            // Assign key account
+        // Assign key account
         keyAccount = (keyAccount.toUpper() == "Y") ? "1" : "0";
-            // Assign pamphlet sent status
+        // Assign pamphlet sent status
         pamphletSent = (pamphletSent.toUpper() == "Y") ? "1" : "0";
 
         // Execute 'Add Customer' Query
@@ -250,7 +251,7 @@ void Admin::on_button_add_customer_clicked()
         else // If it doesn't work, prompt the user with instruction
         {
             QMessageBox::warning(this, "ERROR", "Customer already exists! "
-                                 "Please enter unique customer data.");
+                                                "Please enter unique customer data.");
         }
     }
     else // If any NULL values, prompt user with instruction
@@ -294,11 +295,11 @@ void Admin::on_button_update_customer_clicked()
         pamphletSent = ui->inputField_pamphlet_sent->text();
 
         // Reassign boolean values to 1 or 0
-            // Assign contact
+        // Assign contact
         doNotContact = (doNotContact.toUpper() == "Y") ? "1" : "0";
-            // Assign key account
+        // Assign key account
         keyAccount = (keyAccount.toUpper() == "Y") ? "1" : "0";
-            // Assign pamphlet sent status
+        // Assign pamphlet sent status
         pamphletSent = (pamphletSent.toUpper() == "Y") ? "1" : "0";
 
         querySuccess = database->UpdateCustomer(customerID, name, address,
