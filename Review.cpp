@@ -154,6 +154,7 @@ void Review::AddNamesAndReviewsToListWidget()
     QString reviewsAr[100];
     int     index;
     int     count = 0;
+    QString word = "This is a word";
 
     /*******************
      * INITIALIZATIONS *
@@ -188,6 +189,9 @@ void Review::AddNamesAndReviewsToListWidget()
 
     index = 0;
 
+    ui -> OldReviewListWidget -> addItem(word);
+
+
     while(index < count)
     {//begin while
         qDebug() << "Actually Inside second while loop\n";
@@ -195,9 +199,8 @@ void Review::AddNamesAndReviewsToListWidget()
 //        ui -> OldReviewTextBrowser -> insertPlainText(namesAr[index]);
 //        ui -> OldReviewTextBrowser -> insertPlainText(reviewsAr[index]);
 
-        ui -> OldReviewsLabel -> setText("words ");
 
-        qDebug() << "Name is: " << namesAr[index] << endl;
+        qDebug() << "Name is: "   << namesAr[index] << endl;
         qDebug() << "Review is: " << reviewsAr[index] << endl;
 
         index++;
