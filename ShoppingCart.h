@@ -18,6 +18,17 @@
 #include <QFileInfo>
 #include <QDateTime>
 #include "Database.h"
+// Object to temporarily hold purchase data until final checkout
+struct Purchase
+{
+    QString customerName;
+    QString itemName;
+    int qtyPurchased;
+};
+// Enum to determine robot location in array
+enum Robots {ROBOT1, ROBOT2, ROBOT3 };
+// Declare array of 3 objects
+const short AR_SIZE = 3;
 /****************************************************************************
  * ShoppingCart Class
  *      A QDialog type class used to create the ShoppingCart window. This
@@ -152,7 +163,6 @@ private slots:
 private:
     Ui::ShoppingCart *ui;
     Database *database;
-
     int    FirstRobotQty;      //!< CALC&OUT - quantity of the first robot
     int    FirstRobotPlan;     //!< CALC&OUT - the first robot warranty plan
     float  FirstRobotSubtotal; //!< CALC&OUT - first robot's subtotal

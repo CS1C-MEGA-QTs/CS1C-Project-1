@@ -49,15 +49,8 @@ public:
     // Change 'pamphletSent' to 'true' (when customer orders pamphlet)
     bool SendPamphlet(QString name,QString pamphletSent);
 
-    // Accessors
-    // Print reviews (customerName, reviewText)
-    QStringList GetReviews();
-
-    // get CustomerID
-    int getCustomerIDs(QString customerName);
-
     // PlacingOrder
-    bool PlacingOrder(QString customerName,QString itemName, int qtyPurchased, QString date);
+    void PlacingOrder(QString customerName, QString itemName, int qtyPurchased, QString date);
 
     //  returns Shipping Address
     QString ShippingAddress(QString &name);

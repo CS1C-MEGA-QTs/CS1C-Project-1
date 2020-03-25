@@ -8,7 +8,7 @@
  * DUE DATE   : 02/23/20
  *****************************************************************************/
 #include "Database.h"
-
+#include "Robot.h"
 // Constructor
 // Parameterized constructor
 Database::Database(QString path, QString driver)
@@ -28,11 +28,6 @@ Database::Database(QString path, QString driver)
         qDebug() << this->lastError().text();
     }
 }
-
-// Mutators
-// Testimonials Page //
-//Add review (customerName, reviewText)
-bool Database::AddReview(QString name, QString reviewText) { return false; }
 
 // Login
 bool Database::AttemptLogin(QString username, QString password)
@@ -142,73 +137,19 @@ bool Database::SendPamphlet(QString name,QString pamphletSent)
     return query.exec();
 }
 
-// Accessors
-// Print reviews (customerName, reviewText)
-QStringList Database::GetReviews() {
-    //    QSqlQuery  query;
-    //    QString reviews;
-    //    query.prepare("select customers.name, reviews.reviewtext from customers,"
-    //                  "reviews where customers.customerID = reviews.customerid;");
-    //    if(query.exec())
-    //    {
-    //        while(query.next())
-    //        {
-    //            reviews = query.value(0).toString();
-
-    //            return name;
-    //        }
-    //    }
-
-    //    return QStringList();
-}
-int Database::getCustomerIDs(QString customerName)
-{
-    QSqlQuery query;
-    query.prepare("SELECT customerID FROM customers WHERE name = :customerName");
-    query.bindValue(":customerName",customerName);
-    int customerID = 0;
-    if(query.exec())
-    {
-        while(query.next())
-        {
-            customerID = query.value(0).toInt();
-            return customerID;
-        }
-    }
-    return customerID;
-}
-//select customers.name, purchases.itemID from customers, purchases where customers.customerID  = purchases.customerID;
 // Placing An Order
-bool Database::PlacingOrder(QString customerName,QString itemName, int qtyPurchased, QString date)
+void Database::PlacingOrder(QString customerName,QString itemName, int qtyPurchased, QString date)
 {
-
     QSqlQuery query;
-    int customerID = getCustomerIDs(customerName);
-    int itemID = 0;
-    while(query.exec())
-    {
-        if(itemName == "iRobot 510 Packbot")
-        {
-            itemID = 1;
-        }
-        else if (itemName == ("Talon"))
-        {
-            itemID = 2;
-        }
-        else if (itemName == ("Dragon Runner"))
-        {
-            itemID = 3;
-        }
-
-        // Prepare query to add purchase
-        query.prepare("INSERT INTO purchases VALUES (:customerID,:itemID, :qtyPurchased, :date);");
-
-        // Bind safe values
-        query.bindValue(":customerID", customerID);
-        query.bindValue(":itemID", itemID);
-        query.bindValue(":qtyPurchased", qtyPurchased);
-        query.bindValue(":date", date);
-    }
+    // Prepare query to add purchase
+    query.prepare("INSERT INTO purchases VALUES(:customerName,:itemName,:qtyPurchased,:date);");
+    // Bind safe values
+    query.bindValue(":customerName", customerName);
+    query.bindValue(":itemName", itemName);
+    query.bindValue(":qtyPurchased", qtyPurchased);
+    query.bindValue(":date", date);
+    // Execute query and return status
+    query.exec();
 }
 // Returning Shipping Address
 QString Database::ShippingAddress(QString &name)

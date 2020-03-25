@@ -19,7 +19,6 @@
 #include "Help.h"
 #include "admin.h"
 #include "Pamphlet.h"
-#include "Review.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -52,6 +51,5 @@ private:
     Help *help;
     Pamphlet *pamphlet;
     Admin *admin;
-    Review *review;
 };
 #endif // MAINWINDOW_H

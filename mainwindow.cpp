@@ -128,9 +128,4 @@ void MainWindow::on_pushButton_SendPamphlet_clicked()
 ************************************************************/
 void MainWindow::on_pushButton_ReviewPage_clicked()
 {
-    // Hides the Main Window
-    //  hide();
-    // Shows the Review Window
-    review =  new Review(this);
-    review -> show();
 }

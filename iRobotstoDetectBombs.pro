@@ -22,7 +22,6 @@ SOURCES += \
     Database.cpp \
     Help.cpp \
     Pamphlet.cpp \
-    Review.cpp \
     Robot.cpp \
     ShoppingCart.cpp \
     main.cpp \
@@ -36,7 +35,6 @@ HEADERS += \
     Database.h \
     Help.h \
     Pamphlet.h \
-    Review.h \
     Robot.h \
     ShoppingCart.h \
     mainwindow.h
@@ -46,7 +44,6 @@ FORMS += \
     CustomerService.ui \
     Help.ui \
     Pamphlet.ui \
-    Review.ui \
     Robot.ui \
     ShoppingCart.ui \
     mainwindow.ui
