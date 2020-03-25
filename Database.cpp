@@ -28,6 +28,10 @@ Database::Database(QString path, QString driver)
         qDebug() << this->lastError().text();
     }
 }
+// Mutators
+// Testimonials Page //
+//Add review (customerName, reviewText)
+bool Database::AddReview() { return false; }
 
 // Login
 bool Database::AttemptLogin(QString username, QString password)
@@ -137,6 +141,9 @@ bool Database::SendPamphlet(QString name,QString pamphletSent)
     return query.exec();
 }
 
+// Accessors
+// Print reviews (customerName, reviewText)
+QStringList Database::GetReviews() {return QStringList();}
 // Placing An Order
 void Database::PlacingOrder(QString customerName,QString itemName, int qtyPurchased, QString date)
 {
@@ -167,6 +174,109 @@ QString Database::ShippingAddress(QString &name)
     }
 
     return name;
+}
+/******************************************************************
+* ReturnName(QString ar[])
+* -----------------------------------------------------------------
+* This will assign all customer names and customer reviews into
+* thier respective variables of the struct.
+*
+* RETURNS - Array of names
+******************************************************************/
+int Database::ReturnNames(QString ar[])
+{
+    QSqlQuery  query;
+
+    // Set an index for iteration
+    int index = 0;
+    int count = 0;
+
+    // First we need a loop to pull the names from the customerID's
+    // Test this one in the command line version of SQLite3 until you get the query
+    // right
+    query.prepare("select customers.name, reviews.reviewText "
+                  "from customers,reviews where "
+                  "customers.customerID = reviews.customerid");
+
+    if(query.exec())
+    {
+        // Start loop to iterate through available information
+        while(query.next() && index < 100)
+        {//begin while
+
+            // Set the name using the 'reviewText' column on the 'reviews' table
+            // '0' is the first column. If that's not the correct column, adjust
+            // the number to the correct one with the name in it.
+            ar[index] = (query.value(0).toString());
+
+            qDebug() << "Name is: " << ar[index] << endl;
+
+            // Go to next spot in array
+            index++;
+            count++;
+
+        }//end while
+
+
+    }
+    else // else output the error
+    {
+        qDebug() << query.lastError().text();
+    }
+
+
+    return count;
+}
+
+/******************************************************************
+* ReturnName(QString ar[])
+* -----------------------------------------------------------------
+* This will assign all customer names and customer reviews into
+* thier respective variables of the struct.
+*
+* RETURNS - Array of names
+******************************************************************/
+void Database::ReturnReviews(QString ar[])
+{
+    QSqlQuery  query;
+
+    // Set an index for iteration
+    int index = 0;
+
+    // First we need a loop to pull the names from the customerID's
+    // Test this one in the command line version of SQLite3 until you get the query
+    // right
+    query.prepare("select customers.name, reviews.reviewText "
+                  "from customers,reviews where "
+                  "customers.customerID = reviews.customerid");
+
+    if(query.exec())
+    {
+        // Start loop to iterate through available information
+        while(query.next() && index < 100)
+        {//begin while
+
+            // Set the name using the 'reviewText' column on the 'reviews' table
+            // '0' is the first column. If that's not the correct column, adjust
+            // the number to the correct one with the name in it.
+            ar[index] = (query.value(1).toString());
+
+            qDebug() << "review is: " << ar[index] << endl;
+
+            // Go to next spot in array
+            index++;
+
+
+        }//end while
+
+
+    }
+    else // else output the error
+    {
+        qDebug() << query.lastError().text();
+    }
+
+
 }
 // Destructor
 Database::~Database() {}

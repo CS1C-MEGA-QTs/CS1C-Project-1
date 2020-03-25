@@ -9,8 +9,6 @@
  *****************************************************************************/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "Database.h"
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,9 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    /******************************
-     **** SPECIFIC TO HOME TAB ****
-     ******************************/
+                    /******************************
+                     **** SPECIFIC TO HOME TAB ****
+                     ******************************/
 
     /************************************************************
     * PROCESSING - Assign an image into new QPixmap variable
@@ -121,11 +119,17 @@ void MainWindow::on_pushButton_SendPamphlet_clicked()
     pamphlet =  new Pamphlet(this);
     pamphlet -> show();
 }
+
 /************************************************************
 * on_pushButton_ReviewPage_clicked()
 * ----------------------------------------------------------
 * This will allow the user to go to the review page.
 ************************************************************/
+
 void MainWindow::on_pushButton_ReviewPage_clicked()
 {
+    // Shows the Phamphlet Window
+    review =  new Review(this);
+    review -> show();
+
 }

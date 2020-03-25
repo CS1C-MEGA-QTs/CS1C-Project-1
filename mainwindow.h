@@ -17,7 +17,8 @@
 #include "Robot.h"
 #include "CustomerService.h"
 #include "Help.h"
-#include "admin.h"
+#include "Admin.h"
+#include "Review.h"
 #include "Pamphlet.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -51,5 +52,6 @@ private:
     Help *help;
     Pamphlet *pamphlet;
     Admin *admin;
+    Review *review;
 };
 #endif // MAINWINDOW_H

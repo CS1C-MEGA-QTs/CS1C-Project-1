@@ -559,9 +559,8 @@ void ShoppingCart::on_pushButton_Checkout_clicked()
     // setting date to current date
     QDateTime currentDate = QDateTime::currentDateTime();
     QString date = currentDate.toString("MM/dd/yyyy");
-    int index = 0;
     // load purchase information into database
-    while(purchasePtr != nullptr)
+    for(int index = 0; index < 3; index ++)
     {
         // setting customer name and changing into customer id
         purchasePtr[index].customerName = ui->CompanyNameComboBox->currentText();
@@ -573,10 +572,8 @@ void ShoppingCart::on_pushButton_Checkout_clicked()
                  << " " << purchasePtr[index].qtyPurchased
                  << " " << date;
 
-        // increment
-        index++;
-
     }
+    hide();
 }
 
 /**********************************************************************

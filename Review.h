@@ -28,18 +28,12 @@ public:
 
     void AddNamesAndReviewsToListWidget();
 
-
 private slots:
     void on_pushButton_SendReview_clicked();
 
     void on_pushButton_FAdminTMain_clicked();
 
-    void ReturnReview();
-
-    void on_tableView_activated(const QModelIndex &index);
-
-
-    void on_OldReviewListWidget_currentTextChanged(const QString &currentText);
+    void on_ShowOldReviews_clicked();
 
 private:
     Ui::Review *ui;
@@ -48,3 +42,4 @@ private:
 };
 
 #endif // REVIEW_H
+

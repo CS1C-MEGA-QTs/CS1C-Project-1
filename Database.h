@@ -24,7 +24,7 @@ public:
     // Mutators
     // Testimonials Page //
     //Add review (customerName, reviewText)
-    bool AddReview(QString name, QString reviewText);
+    bool AddReview();
 
     // Database Interface
     // Login
@@ -48,6 +48,14 @@ public:
     // Home Page (?) //
     // Change 'pamphletSent' to 'true' (when customer orders pamphlet)
     bool SendPamphlet(QString name,QString pamphletSent);
+
+    // Accessors
+    // Print reviews (customerName, reviewText)
+    QStringList GetReviews();
+
+    int ReturnNames(QString ar[]);
+
+    void ReturnReviews(QString ar[]);
 
     // PlacingOrder
     void PlacingOrder(QString customerName, QString itemName, int qtyPurchased, QString date);
