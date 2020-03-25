@@ -125,11 +125,10 @@ void Admin::on_button_view_key_customer_clicked()
 void Admin::on_button_view_purchases_clicked()
 {
     QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("SELECT customers.name, items.name, items.price, "
-                    "purchases.qtyPurchased "
-                    "FROM customers, items, purchases "
-                    "WHERE customers.customerID = purchases.customerID "
-                    "AND items.itemID = purchases.itemID;", QSqlDatabase());
+    model->setQuery("SELECT purchases.customerName, purchases.itemName, items.price, "
+                       "purchases.qtyPurchased "
+                       "FROM  items, purchases "
+                       "WHERE items.itemID = purchases.itemID;", QSqlDatabase());
 
     model->setHeaderData(0, Qt::Horizontal, tr("Name"));
     model->setHeaderData(1, Qt::Horizontal, tr("Item"));
