@@ -11,6 +11,7 @@
 #include "mainwindow.h"
 #include "Customer.h"
 #include "ui_ShoppingCart.h"
+#include <iostream>
 /****************************************************************************
  * METHOD - ShoppingCart(QWidget *parent) :  QDialog(parent)
  * --------------------------------------------------------------------------
@@ -107,7 +108,6 @@ ShoppingCart::ShoppingCart(QWidget *parent) :
     ui->StateComboBox->addItem("WV");
     ui->StateComboBox->addItem("WY");
 
-    ui->CompanyNameComboBox->addItem(" ");
     ui->CompanyNameComboBox->addItem("FBI");
     ui->CompanyNameComboBox->addItem("CIA");
     ui->CompanyNameComboBox->addItem("Cisco");
@@ -547,23 +547,35 @@ void ShoppingCart::on_pushButtonBackMain_clicked()
 ************************************************************/
 void ShoppingCart::on_pushButton_Checkout_clicked()
 {
+    // declare new pointer array and insert purchase information
+    Purchase *purchasePtr = new Purchase[AR_SIZE];
+    purchasePtr[ROBOT1].itemName = FIRST_ROBOT_NAME;
+    purchasePtr[ROBOT2].itemName = SECOND_ROBOT_NAME;
+    purchasePtr[ROBOT3].itemName = THIRD_ROBOT_NAME;
+    purchasePtr[ROBOT1].qtyPurchased = FirstRobotQty;
+    purchasePtr[ROBOT2].qtyPurchased = SecondRobotQty;
+    purchasePtr[ROBOT3].qtyPurchased = ThirdRobotQty;
+    QSqlQuery query(*database);
+    // setting date to current date
+    QDateTime currentDate = QDateTime::currentDateTime();
+    QString date = currentDate.toString("MM/dd/yyyy");
+    // load purchase information into database
+    for(int index = 0; index < 3; index ++)
+    {
+        // setting customer name and changing into customer id
+        purchasePtr[index].customerName = ui->CompanyNameComboBox->currentText();
+        database->PlacingOrder(purchasePtr[index].customerName,
+                               purchasePtr[index].itemName,
+                               purchasePtr[index].qtyPurchased,date);
+        qDebug() << " got here" << purchasePtr[index].customerName
+                 << " " << purchasePtr[index].itemName
+                 << " " << purchasePtr[index].qtyPurchased
+                 << " " << date;
 
-    //    bool querySuccess = false;
-    //    QSqlQuery query(*database);
-    //    querySuccess = database->PlacingOrder(customerID, qtyPurchased, date);
-    //    // Execute query. If it works, update the tableview to display new entry
-    //    if(querySuccess)
-    //    {
-    //        // Open and display order confirmation message box
-    //        QMessageBox::information(this, "Order Confirmation",
-    //                                 "Thank you for your order.", QMessageBox::Ok);
-    //    }
-    //    else
-    //    {
-    //        QMessageBox::information(this, "Error",
-    //                                 "Company Name not found!", QMessageBox::Ok);
-    //    }
+    }
+    hide();
 }
+
 /**********************************************************************
 * on_FirstRobotComboBox_currentIndexChanged(int plan)
 * --------------------------------------------------------------------
@@ -589,7 +601,6 @@ void ShoppingCart::on_FirstRobotSpinBox_valueChanged(int quantity)
 {
     // updates robot quantity
     FirstRobotQty = quantity;
-
     // updates robot subtotal
     setFirstRobotSubtotal();
 }
@@ -617,7 +628,6 @@ void ShoppingCart::on_SecondRobotSpinBox_valueChanged(int quantity)
 {
     // Updates robot quantity
     SecondRobotQty = quantity;
-
     // Updates robot subtotal
     setSecondRobotSubtotal();
 }
@@ -645,7 +655,6 @@ void ShoppingCart::on_ThirdRobotSpinBox_valueChanged(int quantity)
 {
     // Updates robot quantity
     ThirdRobotQty = quantity;
-
     // Updates robot subtotal
     setThirdRobotSubtotal();
 }
@@ -663,7 +672,7 @@ void ShoppingCart::on_ThirdRobotSpinBox_valueChanged(int quantity)
  * POST-CONDITIONS
  *      ==> Returns nothing
  ***************************************************************************/
-void ShoppingCart::on_CompanyNameComboBox_currentIndexChanged()
+void ShoppingCart::on_CompanyNameComboBox_currentIndexChanged(const QString &arg1)
 {
     QSqlQuery query(*database);
     QString name = ui->CompanyNameComboBox->currentText();
@@ -672,7 +681,6 @@ void ShoppingCart::on_CompanyNameComboBox_currentIndexChanged()
     address = database->ShippingAddress(name);
 
     ui->CompanyAddressBox->setText(address);
-
 }
 /****************************************************************************
  * METHOD - on_yesCheckBox_toggled

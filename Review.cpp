@@ -76,34 +76,34 @@ void Review::on_pushButton_SendReview_clicked()
     ******************************************************************/
     switch(name.toStdString()[0])
     {
-        case 'A': customerID = AMAZON;
-                     break;
-        case 'C': if(name.at(1) == 'I')
-                  {
-                    customerID = CIA;
-                  }
-                  else
-                  {
-                    customerID = CISCO;
-                  }
-                  break;
-        case 'F': customerID = FBI;
-                  break;
-        case 'L': if(name.at(12) == 'D')
-                  {
-                    customerID = LA_DODGERS;
-                  }
-                  else if(name.at(13) == 'i')
-                  {
-                    customerID = LA_AIRPORT;
-                  }
-                  else
-                  {
-                    customerID = LA_ANGELS;
-                  }
-                  break;
-        case 'O': customerID = OC_AIRPORT;
-                  break;
+    case 'A': customerID = AMAZON;
+        break;
+    case 'C': if(name.at(1) == 'I')
+        {
+            customerID = CIA;
+        }
+        else
+        {
+            customerID = CISCO;
+        }
+        break;
+    case 'F': customerID = FBI;
+        break;
+    case 'L': if(name.at(12) == 'D')
+        {
+            customerID = LA_DODGERS;
+        }
+        else if(name.at(13) == 'i')
+        {
+            customerID = LA_AIRPORT;
+        }
+        else
+        {
+            customerID = LA_ANGELS;
+        }
+        break;
+    case 'O': customerID = OC_AIRPORT;
+        break;
     }
 
 
@@ -149,7 +149,7 @@ void Review::on_ShowOldReviews_clicked()
     database = new Database("MegaQTDB.db", "QSQLITE");
     index    = 0;
 
-    count = database -> ReturnNames  (namesAr);
+    count = database -> ReturnNames (namesAr);
     database -> ReturnReviews(reviewsAr);
 
     /************************************************************
@@ -166,4 +166,18 @@ void Review::on_ShowOldReviews_clicked()
         index++;
 
     }//end while
+}
+/************************************************************
+* on_pushButtonBackMain_clicked()
+* ----------------------------------------------------------
+* This will allow the user to go back to the main window.
+************************************************************/
+void Review::on_pushButton_FAdminTMain_clicked()
+{
+    // Hide the HelpWindow itself
+    hide();
+
+    // Show the MainWindow (i.e. the parent window)
+    MainWindow *newmain= new MainWindow();
+    newmain->show();
 }

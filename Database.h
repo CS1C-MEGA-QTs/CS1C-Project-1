@@ -13,8 +13,6 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QString>
-
 
 class Database : public QSqlDatabase
 {
@@ -59,16 +57,14 @@ public:
 
     void ReturnReviews(QString ar[]);
 
-
     // PlacingOrder
-    bool PlacingOrder(QString customerID, QString qtyPurchased, QString date);
+    void PlacingOrder(QString customerName, QString itemName, int qtyPurchased, QString date);
 
     //  returns Shipping Address
     QString ShippingAddress(QString &name);
 
     // Destructor
     ~Database();
-
 };
 
 #endif // DATABASE_H

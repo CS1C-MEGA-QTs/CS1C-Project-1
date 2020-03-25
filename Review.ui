@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 223, 223);</string>
+  </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
@@ -29,6 +32,9 @@
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 203, 203);</string>
    </property>
    <property name="html">
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -61,6 +67,9 @@ p, li { white-space: pre-wrap; }
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
+   </property>
    <property name="isWrapping" stdset="0">
     <bool>false</bool>
    </property>
@@ -84,7 +93,7 @@ p, li { white-space: pre-wrap; }
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: white;</string>
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -103,6 +112,9 @@ p, li { white-space: pre-wrap; }
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
    </property>
    <property name="text">
     <string>Select Your Company Name</string>
@@ -125,6 +137,9 @@ p, li { white-space: pre-wrap; }
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
+   </property>
    <property name="text">
     <string>Enter Your Review Here </string>
    </property>
@@ -144,6 +159,9 @@ p, li { white-space: pre-wrap; }
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="ShowOldReviews">
    <property name="geometry">
@@ -159,6 +177,9 @@ p, li { white-space: pre-wrap; }
      <family>Century Gothic</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
    </property>
    <property name="text">
     <string>Show Old Reviews</string>
@@ -179,8 +200,33 @@ p, li { white-space: pre-wrap; }
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
+   </property>
    <property name="text">
-    <string>Send Reviews and/or Leave the Page</string>
+    <string>Send Reviews</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_FAdminTMain">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>780</y>
+     <width>511</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 185, 185);</string>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
    </property>
   </widget>
  </widget>

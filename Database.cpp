@@ -8,8 +8,7 @@
  * DUE DATE   : 02/23/20
  *****************************************************************************/
 #include "Database.h"
-#include "Review.h"
-
+#include "Robot.h"
 // Constructor
 // Parameterized constructor
 Database::Database(QString path, QString driver)
@@ -29,7 +28,6 @@ Database::Database(QString path, QString driver)
         qDebug() << this->lastError().text();
     }
 }
-
 // Mutators
 // Testimonials Page //
 //Add review (customerName, reviewText)
@@ -134,38 +132,37 @@ bool Database::SendPamphlet(QString name,QString pamphletSent)
 {
     QSqlQuery query;
     // Prepare query to send pamphlet
-   query.prepare("UPDATE customers "
-                 "SET pamphletSent = :pamphletSent "
-                 "WHERE name = :name;");
+    query.prepare("UPDATE customers "
+                  "SET pamphletSent = :pamphletSent "
+                  "WHERE name = :name;");
     // Bind safe values
-     query.bindValue(":name",name);
-     query.bindValue(":pamphletSent", pamphletSent);
+    query.bindValue(":name",name);
+    query.bindValue(":pamphletSent", pamphletSent);
     return query.exec();
 }
 
 // Accessors
 // Print reviews (customerName, reviewText)
 QStringList Database::GetReviews() {return QStringList();}
-
 // Placing An Order
-bool Database::PlacingOrder(QString customerID, QString qtyPurchased, QString date)
+void Database::PlacingOrder(QString customerName,QString itemName, int qtyPurchased, QString date)
 {
     QSqlQuery query;
     // Prepare query to add purchase
-    query.prepare("INSERT INTO purchases VALUES(:customerID, :qtyPurchased, :date);");
-
+    query.prepare("INSERT INTO purchases VALUES(:customerName,:itemName,:qtyPurchased,:date);");
     // Bind safe values
-    query.bindValue(":customerID", customerID);
+    query.bindValue(":customerName", customerName);
+    query.bindValue(":itemName", itemName);
     query.bindValue(":qtyPurchased", qtyPurchased);
     query.bindValue(":date", date);
-    return query.exec();
+    // Execute query and return status
+    query.exec();
 }
-
 // Returning Shipping Address
 QString Database::ShippingAddress(QString &name)
 {
     QSqlQuery query;
-    query.prepare("SELECT address FROM customers WHERE name = :name");
+    query.prepare("SELECT address FROM customers WHERE name=:name");
     query.bindValue(":name",name);
     if(query.exec())
     {
@@ -178,7 +175,6 @@ QString Database::ShippingAddress(QString &name)
 
     return name;
 }
-
 /******************************************************************
 * ReturnName(QString ar[])
 * -----------------------------------------------------------------
@@ -282,6 +278,5 @@ void Database::ReturnReviews(QString ar[])
 
 
 }
-
 // Destructor
 Database::~Database() {}
